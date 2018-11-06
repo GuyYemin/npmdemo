@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent { label 'slave' }
   stages {
     stage('npm Install') {
       when {
@@ -9,7 +9,7 @@ pipeline {
 
       }
       steps {
-        npm install
+        sh 'npm install'
       }
     }
   }
@@ -25,7 +25,7 @@ pipeline {
 
         }
         steps {
-          npm install
+         sh 'npm install'
         }
       }
     }
