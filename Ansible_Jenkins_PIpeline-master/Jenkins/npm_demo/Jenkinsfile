@@ -1,7 +1,7 @@
 pipeline {
-  agent { label 'slave' }
+  agent any
   stages {
-    stage('npm Install') {
+    stage('Build Demo App') {
       when {
         expression {
           params.REQUESTED_ACTION == 'Build'
@@ -9,7 +9,7 @@ pipeline {
 
       }
       steps {
-        sh 'npm install'
+        sh ''''''
       }
     }
   }
@@ -17,20 +17,4 @@ pipeline {
     choice(name: 'REQUESTED_ACTION', choices: '''Build
 ''', description: 'Type of action to perform')
   }
-    stage('npm run build') {
-        when {
-          expression {
-            params.REQUESTED_ACTION == 'Build'
-          }
-
-        }
-        steps {
-         sh 'npm install'
-        }
-      }
-    }
-    parameters {
-      choice(name: 'REQUESTED_ACTION', choices: '''Build
-  ''', description: 'Type of action to perform')
-    }
 }
