@@ -28,3 +28,4 @@ pipeline {
 ''', description: 'Type of action to perform')
   }
 }
+}
