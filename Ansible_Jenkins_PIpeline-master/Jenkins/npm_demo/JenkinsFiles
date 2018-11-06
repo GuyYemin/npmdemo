@@ -1,0 +1,36 @@
+pipeline {
+  agent any
+  stages {
+    stage('npm Install') {
+      when {
+        expression {
+          params.REQUESTED_ACTION == 'Build'
+        }
+
+      }
+      steps {
+        npm install
+      }
+    }
+  }
+  parameters {
+    choice(name: 'REQUESTED_ACTION', choices: '''Build
+''', description: 'Type of action to perform')
+  }
+    stage('npm run build') {
+        when {
+          expression {
+            params.REQUESTED_ACTION == 'Build'
+          }
+
+        }
+        steps {
+          npm install
+        }
+      }
+    }
+    parameters {
+      choice(name: 'REQUESTED_ACTION', choices: '''Build
+  ''', description: 'Type of action to perform')
+    }
+}
