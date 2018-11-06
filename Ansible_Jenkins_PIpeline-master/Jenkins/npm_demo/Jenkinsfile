@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Build Demo App') {
+    stage('npm install') {
       when {
         expression {
           params.REQUESTED_ACTION == 'Build'
@@ -9,7 +9,7 @@ pipeline {
 
       }
       steps {
-        sh ''''''
+        sh 'npm install'
       }
     }
   }
