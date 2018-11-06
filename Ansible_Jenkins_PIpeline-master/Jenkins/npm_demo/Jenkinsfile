@@ -20,7 +20,7 @@ pipeline {
 
       }
       steps {
-        sh 'cd Ansible_Jenkins_PIpeline-master/Jenkins/npm_demo'
+        sh 'cd /Ansible_Jenkins_PIpeline-master/Jenkins/npm_demo/'
         sh 'npm run build'
       }
     }
